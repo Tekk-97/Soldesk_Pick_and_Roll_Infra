@@ -1,5 +1,7 @@
+variable "AWS_ACCESS_KEY" {}
+variable "AWS_SECRET_KEY" {}
 variable "ssh-key-path" {
-  default = "~/.ssh/aws_ec2.pem"
+  default = "~/Downloads/aws-ec2.pem"
 }
 variable "pjt_name" {
   default = "aws_3_tire_web"
