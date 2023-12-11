@@ -13,6 +13,7 @@ module "security_rules" {
 }
 module "route" {
   source         = "./route"
+  pjt_name       = var.pjt_name
   igw_id         = module.tree_tire_web_infra.vpc_resources.igw_id
   nat_gw_id      = module.tree_tire_web_infra.vpc_resources.nat_gw_id
   routing_tables = module.tree_tire_web_infra.vpc_resources.routing_tables
@@ -21,7 +22,7 @@ module "instance" {
   source            = "./instance"
   bestion_subnet_id = module.tree_tire_web_infra.vpc_resources.subnets["10.0.1.0/24"]
   bestion_sg_ids    = [module.tree_tire_web_infra.vpc_resources.security_groups["pub_bestion_sg"]]
-  ssh-key-path      = var.ssh-key-path
+  ssh-key           = var.ssh-key
 
   front_subnet_id = module.tree_tire_web_infra.vpc_resources.subnets["10.0.2.0/24"]
   front_sg_ids    = [module.tree_tire_web_infra.vpc_resources.security_groups["pri_front_sg"]]

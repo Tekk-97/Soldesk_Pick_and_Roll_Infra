@@ -1,10 +1,10 @@
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
-variable "ssh-key-path" {
-  default = "~/Downloads/aws-ec2.pem"
+variable "ssh-key" {
+  default = "mykey"
 }
 variable "pjt_name" {
-  default = "aws_3_tire_web"
+  default = "pick_and_roll"
 }
 variable "region" {
   default = "ap-northeast-2"
