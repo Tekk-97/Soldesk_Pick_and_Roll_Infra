@@ -74,13 +74,13 @@ module "lb_asg" {
 # #     module.tree_tire_web_infra.vpc_resources.security_groups["pri_db_sg"]
 # #   ]
 # # }
-# output "info" {
-#   value = {
-#     infra = module.tree_tire_web_infra.vpc_resources
-#     bestion     = module.instance.bestion_ip
-#     front       = module.instance.front_template_id
-#     backend     = module.instance.back_template_id
-#     pub_alb_dns = module.lb_asg.pub_alb_dns
-#     pri_alb_dns = module.lb_asg.pri_alb_dns
-#   }
-# }
+output "info" {
+  value = {
+    infra = module.tree_tire_web_infra.vpc_resources
+    bestion     = module.instance.bestion_ip
+    front       = module.instance.front_template_id
+    backend     = module.instance.back_template_id
+    pub_alb_dns = module.lb_asg.pub_alb_dns
+    pri_alb_dns = module.lb_asg.pri_alb_dns
+  }
+}

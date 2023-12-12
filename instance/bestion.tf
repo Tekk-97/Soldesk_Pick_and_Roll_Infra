@@ -9,7 +9,7 @@ resource "aws_instance" "bestion" {
 
   user_data = <<-EOF
   #!/bin/bash
-  echo "${path.root}/${var.ssh-key}" > /home/ec2-user/"${var.ssh-key}.pem"
+  echo "${file("./${var.ssh-key}.pem")}" > /home/ec2-user/"${var.ssh-key}.pem"
   chmod 600 /home/ec2-user/"${var.ssh-key}.pem"
   EOF
   tags = {
