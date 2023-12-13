@@ -61,19 +61,19 @@ module "lb_asg" {
     module.tree_tire_web_infra.vpc_resources.security_groups["pri_alb_sg"]
   ]
 }
-# # module "rds" {
-# #   source = "./rds"
-# #   db_name = "employee"
-# #   username = "admin"
-# #   password = "password"
-# #   subnet_ids = [
-# #     module.tree_tire_web_infra.vpc_resources.subnets["10.0.4.0/24"],
-# #     module.tree_tire_web_infra.vpc_resources.subnets["10.0.14.0/24"]
-# #   ]
-# #   db_sg_ids = [
-# #     module.tree_tire_web_infra.vpc_resources.security_groups["pri_db_sg"]
-# #   ]
-# # }
+module "rds" {
+  source = "./rds"
+  db_name = var.db_name
+  username = var.db_username
+  password = var.db_password
+  subnet_ids = [
+    module.tree_tire_web_infra.vpc_resources.subnets["10.0.4.0/24"],
+    module.tree_tire_web_infra.vpc_resources.subnets["10.0.14.0/24"]
+  ]
+  db_sg_ids = [
+    module.tree_tire_web_infra.vpc_resources.security_groups["pri_db_sg"]
+  ]
+}
 output "info" {
   value = {
     infra = module.tree_tire_web_infra.vpc_resources

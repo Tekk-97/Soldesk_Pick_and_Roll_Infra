@@ -1,5 +1,9 @@
 variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
+variable "db_name" {}
+variable "db_username" {}
+variable "db_password" {}
+
 variable "ssh-key" {
   default = "mykey"
 }
