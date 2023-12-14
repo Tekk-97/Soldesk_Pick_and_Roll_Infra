@@ -14,8 +14,8 @@ resource "aws_launch_template" "front_template" {
     systemctl start docker.service
     systemctl enable docker.service
 
-    docker pull lundaljung/soldesk_pick_and_roll_front:latest
-    docker run -d --name frontend -p 80:80 lundaljung/soldesk_pick_and_roll_front:latest
+    docker pull tekk42/soldesk_pick_and_roll_front:latest
+    docker run -d --name frontend -p 80:80 tekk42/soldesk_pick_and_roll_front:latest
     EOT 
   )
   lifecycle {
